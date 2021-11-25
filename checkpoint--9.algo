@@ -1,0 +1,99 @@
+ALGORITHM checkpointlinearproblem2
+VAR
+set1:array_of INTEGER[4];
+set2:array_of INTEGER[5];
+i,j:INTEGER;
+test:BOOLEAN;
+sum:INTEGER:=0;
+max:=set1
+BEGIN
+set1={3,1,7,9};
+set2={2,4,1,9,3};
+IF (max(set1[0],set2[0])<min(set1[set1.length]),(set2[set2.length])) THEN
+END_IF
+FOR i FROM 0 TO set1.length-1
+test:=false;
+WHILE (j<set2.length) DO
+IF (set1[i]=set2[j]) THEN
+test:=true;
+END_IF
+j:=j+1;
+END_WHILE
+IF (test=false) THEN
+sum=sum+set[i]+set2[j];
+read("the sum of distinctelemet is",sum);
+END_IF
+END_FOR
+END_IF
+write(sum);
+END
+[12:41 AM]
+ALGORITHM checkpointlinear
+VAR
+set1:array_of INTEGER[4];
+set2:array_of INTEGER[5];
+i,j:INTEGER;
+test:BOOLEAN;
+sum:INTEGER:=0;
+BEGIN
+set1={3,1,7,9};
+set2={2,4,1,9,3};
+FOR i FROM 0 TO set1.length-1
+test:=false;
+WHILE (j<set2.length) DO
+IF (set1[i]=set2[j]) THEN
+test:=true;
+END_IF
+j:=j+1;
+END_WHILE
+IF (test=false) THEN
+sum=sum+set[i]+set2[j];
+read("the sum of distinctelemet is",sum);
+END_IF
+END_FOR
+write(sum);
+END
+NEW
+[12:42 AM]
+ALGORITHM pblm1_hashtable
+VAR
+    set1,set2 : ARRAY_OF INTEGER[20];
+    set_keys : ARRAY_OF INTEGER[40];
+    hashtab := HASH_TABLE<INTEGER,INTEGER>;
+    i, count : INTEGER;
+    sum : INTEGER := 0;
+BEGIN
+whrite("give the elements of set1");
+read("set1)";
+whrite("give the elements of set2");
+read("set2)";
+
+    FOR i FROM 0 TO set1.length -1 STEP 1  DO
+        IF (hashtab.lookup(set1[i]) = TRUE) THEN
+            count := hashtab.get(set1[i]);
+            hashtab.insert(set1[i],count+1);
+        ELSE
+            hashtab.insert(set1[i],1);
+        END_IF
+    END_FOR
+
+    FOR i FROM 0 TO set2.length -1 STEP 1  DO
+        IF (hashtab.lookup(set2[i]) = TRUE) THEN
+            count := dict.get(set2[i]);
+        hashtab.insert(set2[i],count+1);
+        ELSE
+            hashtab.insert(set2[i],1);
+        END_IF
+    END_FOR
+
+    //get sum of distinct elements
+    set_keys := hashtab.getKeys();
+    FOR i FROM 0 TO set_keys.length -1 STEP 1  DO
+        IF (hashtab.get(set_keys[i]) = 1) THEN
+            sum := sum +set_keys[i];
+        END_IF
+    END_FOR
+
+END
+
+Message @nourhene
